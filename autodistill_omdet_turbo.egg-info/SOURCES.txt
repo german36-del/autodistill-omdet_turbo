@@ -1,0 +1,9 @@
+README.md
+setup.py
+autodistill_omdet_turbo/__init__.py
+autodistill_omdet_turbo/model.py
+autodistill_omdet_turbo.egg-info/PKG-INFO
+autodistill_omdet_turbo.egg-info/SOURCES.txt
+autodistill_omdet_turbo.egg-info/dependency_links.txt
+autodistill_omdet_turbo.egg-info/requires.txt
+autodistill_omdet_turbo.egg-info/top_level.txt

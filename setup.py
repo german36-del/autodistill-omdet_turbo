@@ -19,7 +19,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="",
-    install_requires=["torch", "numpy", "autodistill", "supervision"],
+    install_requires=["torch", "numpy", "autodistill", "supervision", "timm"],
     packages=find_packages(exclude=("tests",)),
     extras_require={
         "dev": ["flake8", "black==22.3.0", "isort", "twine", "pytest", "wheel"],

@@ -17,7 +17,7 @@ This repository contains the code supporting the OmdetTurbo base model for use w
 
 Read the full [Autodistill documentation](https://autodistill.github.io/autodistill/).
 
-Read the [CLIP Autodistill documentation](https://autodistill.github.io/autodistill/base_models/clip/).
+Read the [Omdet-turbo Autodistill documentation](#TODO).
 
 ## Installation
 
@@ -32,19 +32,25 @@ pip3 install autodistill-omdet_turbo
 
 ```python
 from autodistill_omdet_turbo import OmdetTurbo
+from autodistill.detection import CaptionOntology
+from autodistill.utils import plot
+import cv2
 
-# define an ontology to map class names to our GroundingDINO prompt
+# define an ontology to map class names to our OmdetTurbo prompt
 # the ontology dictionary has the format {caption: class}
 # where caption is the prompt sent to the base model, and class is the label that will
 # be saved for that caption in the generated annotations
 # then, load the model
 base_model = OmdetTurbo(
-    ontology=CaptionOntology(
-        {
-            "person": "person",
-            "a forklift": "forklift"
-        }
-    )
+    ontology=CaptionOntology({"person": "person", "a forklift": "forklift"})
+)
+
+results = base_model.predict("iamge.png")
+
+plot(
+    image=cv2.imread("image.png"),
+    classes=base_model.ontology.classes(),
+    detections=results,
 )
 base_model.label("./context_images", extension=".jpeg")
 ```
